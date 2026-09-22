@@ -1,0 +1,17 @@
+title: MaiML Documents
+description: Markdown editions of the MaiML operational guideline and the MaiML manifesto.
+url: "https://maiml-org.github.io"
+baseurl: "/MaiML-Documents"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Every Markdown document in ja/ and en/ carries YAML front matter and is
+# rendered with the same layout.  The Markdown files themselves are generated
+# artifacts and must not be edited here; see README.md.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: document
