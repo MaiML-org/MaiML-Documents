@@ -15,3 +15,28 @@ defaults:
       path: ""
     values:
       layout: document
+
+# Licensing differs per document, so it is attached here rather than in the
+# generated Markdown, which must stay byte-identical to the build output.
+  - scope:
+      path: "ja/guideline.md"
+    values:
+      copyright: "MaiML Core Team"
+      licence: "CC BY 4.0"
+      licence_url: "https://creativecommons.org/licenses/by/4.0/"
+  - scope:
+      path: "en/guideline.md"
+    values:
+      copyright: "MaiML Core Team"
+      licence: "CC BY 4.0"
+      licence_url: "https://creativecommons.org/licenses/by/4.0/"
+  - scope:
+      path: "ja/manifesto.md"
+    values:
+      copyright: "Takuo Yasunaga"
+      licence_pending: true
+  - scope:
+      path: "en/manifesto.md"
+    values:
+      copyright: "Takuo Yasunaga"
+      licence_pending: true

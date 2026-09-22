@@ -23,6 +23,27 @@ Markdown editions of MaiML documents, in Japanese and English.
   The English edition of the operational guideline is a **working translation that has not
   been independently approved**.
 
+## ライセンス / Licensing
+
+| 文書 / Document | 著作権 / Copyright | ライセンス / Licence |
+|---|---|---|
+| 運用指針 / Operational Guideline | © 2026 MaiML Core Team | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
+| 設計原理 / Manifesto | © 2026 Takuo Yasunaga | 保留 / Pending |
+
+運用指針は **CC BY 4.0** の下で提供する。出所を表示し、改変した場合はその旨を示すことを条件に、
+**商用利用を含めて自由に利用できる。**
+
+The operational guideline is licensed under **CC BY 4.0**: commercial use, modification and
+redistribution are permitted, provided that credit is given and changes are indicated.
+
+設計原理（The MaiML Manifesto）は**ライセンス保留**である。承認前の非規定の草案として閲覧のために
+公開しており、**利用条件は論文の取扱いとあわせて確定する**。
+
+The manifesto is published for reading as a non-normative, pre-approval draft. **No licence is
+granted at this time**; its terms will be determined together with the paper.
+
+全文は [LICENSE](LICENSE) を見ること。 / See [LICENSE](LICENSE) for the full text.
+
 ## 生成物であること / These files are generated
 
 `ja/` 及び `en/` の Markdown は Word 原本から生成した派生表現であり、**このリポジトリで直接編集しない**。

@@ -47,7 +47,25 @@
         {% endif %}
       </p>
       {% endif %}
-      <p><a href="https://maiml-org.github.io/">MaiML Ecosystem</a> · <a href="https://www.maiml.org/">maiml.org</a></p>
+      {% if page.copyright %}
+      <p>
+        © 2026 {{ page.copyright }}.
+        {% if page.licence %}
+          {% if is_ja %}
+            本文書は <a href="{{ page.licence_url }}">{{ page.licence }}</a> の下で提供される。出所を表示し、改変した場合はその旨を示すことを条件に、商用利用を含めて自由に利用できる。
+          {% else %}
+            This document is licensed under <a href="{{ page.licence_url }}">{{ page.licence }}</a>. Commercial use, modification and redistribution are permitted, provided that credit is given and changes are indicated.
+          {% endif %}
+        {% elsif page.licence_pending %}
+          {% if is_ja %}
+            <strong>ライセンスは保留中である。</strong>本文書は承認前の非規定の草案として閲覧のために公開しており、利用条件は論文の取扱いとあわせて確定する。
+          {% else %}
+            <strong>Licensing is pending.</strong> This document is published for reading as a non-normative, pre-approval draft; its terms will be determined together with the paper.
+          {% endif %}
+        {% endif %}
+      </p>
+      {% endif %}
+      <p><a href="https://maiml-org.github.io/">MaiML Ecosystem</a> · <a href="https://www.maiml.org/">maiml.org</a> · <a href="https://github.com/MaiML-org/MaiML-Documents/blob/main/LICENSE">Licence</a></p>
     </div>
   </footer>
 </body>
