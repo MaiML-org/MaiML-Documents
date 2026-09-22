@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 {% assign is_ja = false %}
 {% if page.language == "ja" %}{% assign is_ja = true %}{% endif %}
+{% comment %} Only the language editions carry a counterpart page. {% endcomment %}
+{% assign is_document = false %}
+{% if page.url contains "/ja/" or page.url contains "/en/" %}{% assign is_document = true %}{% endif %}
 {% if is_ja %}
   {% assign other_url = page.url | replace: "/ja/", "/en/" %}
   {% assign other_label = "English" %}
@@ -22,9 +25,9 @@
     <div class="container doc-bar">
       <a class="doc-home" href="https://maiml-org.github.io/">← MaiML Ecosystem</a>
       <div class="doc-switch">
-        <span class="badge">Version {{ page.version }}</span>
-        <span class="badge">{{ page.status }}</span>
-        <a href="{{ other_url | relative_url }}">{{ other_label }}</a>
+        {% if page.version %}<span class="badge">Version {{ page.version }}</span>{% endif %}
+        {% if page.status %}<span class="badge">{{ page.status }}</span>{% endif %}
+        {% if is_document %}<a href="{{ other_url | relative_url }}">{{ other_label }}</a>{% endif %}
       </div>
     </div>
   </header>
@@ -35,6 +38,7 @@
 
   <footer class="doc-footer">
     <div class="container">
+      {% if page.source %}
       <p>
         {% if is_ja %}
           この版は <code>{{ page.source }}</code>（SHA-256 <code>{{ page.source_sha256 }}</code>）から生成した派生表現である。
@@ -42,6 +46,7 @@
           This edition is derived from <code>{{ page.source }}</code> (SHA-256 <code>{{ page.source_sha256 }}</code>).
         {% endif %}
       </p>
+      {% endif %}
       <p><a href="https://maiml-org.github.io/">MaiML Ecosystem</a> · <a href="https://www.maiml.org/">maiml.org</a></p>
     </div>
   </footer>
