@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% assign is_ja = false %}
+{% if page.language == "ja" %}{% assign is_ja = true %}{% endif %}
+{% if is_ja %}
+  {% assign other_url = page.url | replace: "/ja/", "/en/" %}
+  {% assign other_label = "English" %}
+{% else %}
+  {% assign other_url = page.url | replace: "/en/", "/ja/" %}
+  {% assign other_label = "日本語" %}
+{% endif %}
+<html lang="{{ page.language | default: 'ja' }}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title }} — MaiML Documents</title>
+  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/css/document.css' | relative_url }}">
+</head>
+
+<body>
+  <header class="doc-header">
+    <div class="container doc-bar">
+      <a class="doc-home" href="https://maiml-org.github.io/">← MaiML Ecosystem</a>
+      <div class="doc-switch">
+        <span class="badge">Version {{ page.version }}</span>
+        <span class="badge">{{ page.status }}</span>
+        <a href="{{ other_url | relative_url }}">{{ other_label }}</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container doc">
+    {{ content }}
+  </main>
+
+  <footer class="doc-footer">
+    <div class="container">
+      <p>
+        {% if is_ja %}
+          この版は <code>{{ page.source }}</code>（SHA-256 <code>{{ page.source_sha256 }}</code>）から生成した派生表現である。
+        {% else %}
+          This edition is derived from <code>{{ page.source }}</code> (SHA-256 <code>{{ page.source_sha256 }}</code>).
+        {% endif %}
+      </p>
+      <p><a href="https://maiml-org.github.io/">MaiML Ecosystem</a> · <a href="https://www.maiml.org/">maiml.org</a></p>
+    </div>
+  </footer>
+</body>
+</html>
